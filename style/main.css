@@ -1,0 +1,108 @@
+* {
+  margin: 0 auto;
+  background-color: #fefefe;
+  font-family: Helvetica;
+}
+
+.titleContainer {
+  margin-bottom: 5vh;
+}
+h1 {
+  display: flex;
+  justify-content: center;
+}
+.titleCrue {
+  display: none;
+}
+.burgerContainer:hover .titleCrue {
+  display: block;
+}
+
+.burgerContainer:hover .titleCuit {
+  display: none;
+}
+.burger {
+  height: 50vh;
+  width: 65vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20vh;
+}
+.burgerItem {
+  height: 10vh;
+  width: 50vw;
+  border: 1.5px solid;
+  margin-top: 2px;
+}
+/* Bread */
+.topBread {
+  background-color: SandyBrown;
+  height: 25vh;
+  border-radius: 50% 50% 0 0;
+}
+.bottomBread {
+  background-color: SandyBrown;
+  height: 20vh;
+  border-radius: 0 0 40px 40px;
+}
+
+/* Salad */
+.salad {
+  background-color: YellowGreen;
+  height: 1.5vh;
+  width: 55vw;
+  border-radius: 20px 20px 0 0;
+}
+/* Tomato */
+
+.tomatoes {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  width: 50vw;
+}
+.tomato {
+  background-color: Tomato;
+  height: 2vh;
+  width: 49%;
+  border-radius: 20px 20px 20px 20px;
+}
+/* Cheese */
+.cheese {
+  background-color: #ffe380;
+  height: 2vh;
+  border-radius: 20px 20px 20px 20px;
+}
+
+.ham {
+  background-color: rgba(105, 61, 61);
+  height: 12vh;
+  border-radius: 20px 20px 20px 20px;
+}
+
+.cheese + .ham {
+  background: linear-gradient(
+    0deg,
+    rgba(105, 61, 61, 1) 0%,
+    rgba(105, 61, 61, 1) 62%,
+    rgba(213, 187, 95, 1) 100%
+  );
+}
+
+/* #buttonCuit + .burger .topBread {
+  background-color: saddlebrown;
+} */
+
+#buttonCuit:hover + .burger .topBread {
+  background-color: rgb(129, 243, 173);
+}
+
+#buttonCuit:active + .burger .salad {
+  background-color: saddlebrown;
+}
+
+#buttonFondue:active {
+  background-color: saddlebrown;
+}
