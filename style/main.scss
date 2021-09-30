@@ -1,112 +1,132 @@
 * {
   margin: 0 auto;
   background-color: #fefefe;
-  font-family: Helvetica;
+  font-family: fantasy, Helvetica;
 }
 
-.burgerContainer {
-  width: 2;
+.burger-container {
+  margin: 0 20px;
 }
-.titleContainer {
+.title-container{
   margin-bottom: 5vh;
-}
-h1 {
-  display: flex;
-  justify-content: center; 
-}
-.titleCrue {
-  display: none;
-}
-.burgerContainer:hover .titleCrue {
-  display: block;
+  text-align: center;
 }
 
-.burgerContainer:hover .titleCuit {
-  display: none;
-}
 .burger {
-  height: 50vh;
-  width: 65%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 20vh;
-
+  max-width: 300px;
+  margin: 50px auto;
 }
-.burgerItem {
+.burger-item {
   border: 1.5px solid;
   margin-top: 2px;
   transition: 0.2s;
+  width: 100%;
+  height: 15px;
+
+  &::before {
+    content: "";
+    color: rgba(255, 255, 255, 0);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0);
+    transition: 0.3s;
+    border-radius: inherit;
+  }
 }
 /* Bread */
-bread {
-  background-color: SandyBrown;
-  width: 50vw;
-  min-height: 5vh;
-  border-radius: 5px;
-}
-
-.bread:first-child {
-  border-radius: 50% 50% 0 0;
-  min-height: 15vh;
-}
-
 .bread {
-    &:last-child {
-        border-radius: 0 0 40px 40px;
-        min-height: 10vh;
-      }
+  background-color: SandyBrown;
+  height: 125px;
+  border-radius: 5px;
+
+  &::before {
+    content: "Pain";
+  }
+  &:first-child{
+    border-radius: 50% 50% 0 0;
+    height: 90px;    
+  }
+
+  &:last-child{
+    border-radius: 0 0 40px 40px;
+    height: 50px;    
+  }
 }
+
 /* Salad */
 .salad {
   background-color: YellowGreen;
-  min-height: 1.5vh;
-  width: 55vw;
   border-radius: 20px 20px 0 0;
+  position: relative;
+  transition: 0.2s;
+  &::before{
+    content: "Salade";
+  }
 }
+
 /* Tomato */
 
 .tomatoes {
   display: flex;
   justify-content: space-between;
   margin: 0;
-  width: 50vw;
+  width: 100%;
 }
 .tomato {
   background-color: Tomato;
-  min-height: 2vh;
-  min-width: 49%;
   border-radius: 20px 20px 20px 20px;
+  width: calc(50% - 10px);
+  &::before {
+    content: "Tomate";
+  }
 }
 /* Cheese */
 .cheese {
   background-color: #ffe380;
-  min-height: 2vh;
   border-radius: 20px 20px 20px 20px;
-  width: 50vw;
+  &--camembert{
+    @extend .cheese;
+    background-color: #e8f5c9;
+  }
+  &--moisie{
+    @extend .cheese;
+    background-color: #3ec042;
+  }
+  &::before {
+    content: "Fromage";
+  }
+  & + .ham {
+    background: linear-gradient(
+      0deg,
+      rgba(105, 61, 61, 1) 0%,
+      rgba(105, 61, 61, 1) 62%,
+      rgba(213, 187, 95, 1) 100%
+    );
+  }
 }
 
 .ham {
-  background-color: rgba(105, 61, 61);
-  min-height: 7vh;
-  width: 50vw;
+  background-color: rgb(105, 61, 61);
+  height: 30px;
   border-radius: 20px 20px 20px 20px;
+  &::before {
+    content: "Viande";
+  }
 }
 
-.cheese + .ham {
-  background: linear-gradient(
-    0deg,
-    rgba(105, 61, 61, 1) 0%,
-    rgba(105, 61, 61, 1) 62%,
-    rgba(213, 187, 95, 1) 100%
-  );
-}
-
-/* #buttonCuit + .burger .topBread {
-  background-color: saddlebrown;
-} */
-
-#buttonDispatch:active + .burger .burgerItem {
+#buttonDispatch:active + .burger .burger-item {
   margin-bottom: 20px;
+}
+
+#buttonDispatch:active + .burger .burger-item::before,
+.burger-item:hover::before {
+  color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.2);
 }

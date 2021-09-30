@@ -4,52 +4,62 @@
   font-family: fantasy, Helvetica;
 }
 
-.burgerContainer {
-  width: 2;
+.burger-container {
+  margin: 0 20px;
 }
-.titleContainer {
+
+.title-container {
   margin-bottom: 5vh;
   text-align: center;
 }
 
-.titleCrue {
-  display: none;
-}
-.burgerContainer:hover .titleCrue {
-  display: block;
-}
-
-.burgerContainer:hover .titleCuit {
-  display: none;
-}
 .burger {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 400px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 300px;
   margin: 50px auto;
 }
-.burgerItem {
+
+.burger-item {
   border: 1.5px solid;
   margin-top: 2px;
+  -webkit-transition: 0.2s;
   transition: 0.2s;
   width: 100%;
   height: 15px;
 }
 
-.burgerItem::before {
+.burger-item::before {
   content: "";
   color: rgba(255, 255, 255, 0);
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 100%;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: rgba(255, 255, 255, 0);
+  -webkit-transition: 0.3s;
   transition: 0.3s;
   border-radius: inherit;
 }
+
 /* Bread */
 .bread {
   background-color: SandyBrown;
@@ -60,6 +70,7 @@
 .bread::before {
   content: "Pain";
 }
+
 .bread:first-child {
   border-radius: 50% 50% 0 0;
   height: 90px;
@@ -69,11 +80,13 @@
   border-radius: 0 0 40px 40px;
   height: 50px;
 }
+
 /* Salad */
 .salad {
   background-color: YellowGreen;
   border-radius: 20px 20px 0 0;
   position: relative;
+  -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
@@ -82,13 +95,17 @@
 }
 
 /* Tomato */
-
 .tomatoes {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin: 0;
   width: 100%;
 }
+
 .tomato {
   background-color: Tomato;
   border-radius: 20px 20px 20px 20px;
@@ -98,18 +115,32 @@
 .tomato::before {
   content: "Tomate";
 }
+
 /* Cheese */
-.cheese {
+.cheese, .cheese--camembert, .cheese--moisie {
   background-color: #ffe380;
   border-radius: 20px 20px 20px 20px;
 }
 
-.cheese::before {
+.cheese--camembert {
+  background-color: #e8f5c9;
+}
+
+.cheese--moisie {
+  background-color: #3ec042;
+}
+
+.cheese::before, .cheese--camembert::before, .cheese--moisie::before {
   content: "Fromage";
 }
 
+.cheese + .ham, .cheese--camembert + .ham, .cheese--moisie + .ham {
+  background: -webkit-gradient(linear, left bottom, left top, from(#693d3d), color-stop(62%, #693d3d), to(#d5bb5f));
+  background: linear-gradient(0deg, #693d3d 0%, #693d3d 62%, #d5bb5f 100%);
+}
+
 .ham {
-  background-color: rgba(105, 61, 61);
+  background-color: #693d3d;
   height: 30px;
   border-radius: 20px 20px 20px 20px;
 }
@@ -118,21 +149,13 @@
   content: "Viande";
 }
 
-.cheese + .ham {
-  background: linear-gradient(
-    0deg,
-    rgba(105, 61, 61, 1) 0%,
-    rgba(105, 61, 61, 1) 62%,
-    rgba(213, 187, 95, 1) 100%
-  );
-}
-
-#buttonDispatch:active + .burger .burgerItem {
+#buttonDispatch:active + .burger .burger-item {
   margin-bottom: 20px;
 }
 
-#buttonDispatch:active + .burger .burgerItem::before,
-.burgerItem:hover::before {
-  color: rgb(255, 255, 255);
+#buttonDispatch:active + .burger .burger-item::before,
+.burger-item:hover::before {
+  color: white;
   background-color: rgba(255, 255, 255, 0.2);
 }
+/*# sourceMappingURL=main.css.map */
